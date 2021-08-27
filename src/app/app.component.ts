@@ -7,7 +7,7 @@ import { Land } from './model/land';
   <h1>{{title}}</h1>
   <h2>Mijn landen</h2>
   <ul>
-    <li *ngFor="let l of landen">
+    <li *ngFor="let l of landen" (click)="onSelect(l)">
       <span>{{l.id}}</span>{{l.name}}
     </li>
   </ul>
@@ -29,4 +29,8 @@ export class AppComponent {
     ];
   title = 'Een lijstje van landen';
   landen = AppComponent.LANDEN;
+  selectedLand: Land;
+  onSelect(land:Land):void{
+    this.selectedLand=land;
+  }
 }
