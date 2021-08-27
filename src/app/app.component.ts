@@ -29,7 +29,7 @@ export class AppComponent {
     ];
   title = 'Een lijstje van landen';
   landen = AppComponent.LANDEN;
-  selectedLand: Land;
+  selectedLand!: Land;
   onSelect(land:Land):void{
     this.selectedLand=land;
   }

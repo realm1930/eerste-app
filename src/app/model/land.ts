@@ -1,4 +1,4 @@
 export class Land {
-    id:number;
-    name:string;
+    id!:number;
+    name!:string;
 }
