@@ -10,6 +10,16 @@ import { Land } from './model/land';
     <li *ngFor="let l of landen" (click)="onSelect(l)">
       <span>{{l.id}}</span>{{l.name}}
     </li>
+    <div *ngIf="selectedLand">
+    <h2>{{selectedLand.name}} details!</h2>
+    <div>
+      <label>id: </label>{{selectedLand.id}}
+    </div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="selectedLand.name" placeholder="name"/>
+    </div>
+    </div>
   </ul>
   `,
   styleUrls: ['./app.component.css']
