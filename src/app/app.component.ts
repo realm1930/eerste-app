@@ -3,40 +3,9 @@ import { Land } from './model/land';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <h1>{{title}}</h1>
-  <h2>Mijn landen</h2>
-  <ul class="landen">
-    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="l===selectedLand">
-      <span>{{l.id}} </span>{{l.name}}
-    </li>
-    <div *ngIf="selectedLand">
-    <h2>{{selectedLand.name}} details!</h2>
-    <div>
-      <label>id: </label>{{selectedLand.id}}
-    </div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedLand.name" placeholder="name" [style.background-Color]="selectedLand.name===''?'red':'yellow'"/>
-    </div>
-    </div>
-  </ul>
-  `,
-  styleUrls: ['./app.component.css'],
-  styles:[`
-    .landen li{
-      cursor:pointer;
-      width:300px;
-      
-    }
-    .selected{
-      background-color:#CFD8DC;
-    }
-    .landen li.hover{
-      background-color:#BBD8DC;
-      color:white;
-    }
-  `]
+  templateUrl:'app.component.html',
+  styleUrls: ['./app.component.css']
+  
 })
 export class AppComponent {
   static readonly LANDEN: Land[] = [
