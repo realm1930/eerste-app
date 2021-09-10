@@ -17,7 +17,7 @@ import { Land } from './model/land';
     </div>
     <div>
       <label>name: </label>
-      <input [(ngModel)]="selectedLand.name" placeholder="name" />
+      <input [(ngModel)]="selectedLand.name" placeholder="name" [style.background-Color]="selectedLand.name===''?'red':'yellow'"/>
     </div>
     </div>
   </ul>
