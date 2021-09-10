@@ -6,8 +6,8 @@ import { Land } from './model/land';
   template: `
   <h1>{{title}}</h1>
   <h2>Mijn landen</h2>
-  <ul>
-    <li *ngFor="let l of landen" (click)="onSelect(l)">
+  <ul class="landen">
+    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="l===selectedLand">
       <span>{{l.id}} </span>{{l.name}}
     </li>
     <div *ngIf="selectedLand">
@@ -22,7 +22,21 @@ import { Land } from './model/land';
     </div>
   </ul>
   `,
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  styles:[`
+    .landen li{
+      cursor:pointer;
+      width:300px;
+      
+    }
+    .selected{
+      background-color:#CFD8DC;
+    }
+    .landen li.hover{
+      background-color:#BBD8DC;
+      color:white;
+    }
+  `]
 })
 export class AppComponent {
   static readonly LANDEN: Land[] = [
