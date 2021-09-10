@@ -8,7 +8,7 @@ import { Land } from './model/land';
   <h2>Mijn landen</h2>
   <ul>
     <li *ngFor="let l of landen" (click)="onSelect(l)">
-      <span>{{l.id}}</span>{{l.name}}
+      <span>{{l.id}} </span>{{l.name}}
     </li>
     <div *ngIf="selectedLand">
     <h2>{{selectedLand.name}} details!</h2>
@@ -17,7 +17,7 @@ import { Land } from './model/land';
     </div>
     <div>
       <label>name: </label>
-      <input [(ngModel)]="selectedLand.name" placeholder="name"/>
+      <input [(ngModel)]="selectedLand.name" placeholder="name" />
     </div>
     </div>
   </ul>
