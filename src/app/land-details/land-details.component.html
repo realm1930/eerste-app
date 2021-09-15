@@ -4,6 +4,8 @@
     </div>
     <div>
         <label>name: </label>
-        <input [(ngModel)]="land.name" placeholder="name" />
+        <input [(ngModel)]="land.name" placeholder="name" [style.background-Color]="land.name ===''?'red':'yellow'" />
     </div>
+
+    <input type="button" (click)="onClick()" value="Upvote" />
 </div>

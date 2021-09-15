@@ -23,7 +23,11 @@ export class AppComponent {
   title = 'Een lijstje van landen';
   landen = AppComponent.LANDEN;
   selectedLand: Land;
+  totalVotes: number;
   onSelect(land:Land):void{
     this.selectedLand=land;
+  }
+  onValueChange(event:number){
+    this.totalVotes = event;
   }
 }
