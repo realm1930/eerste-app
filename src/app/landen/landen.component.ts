@@ -9,11 +9,7 @@ import { LandService } from '../land.service';
   
 })
 export class LandenComponent implements OnInit {
-  land: Land = {
-    id: 1,
-    name: 'België',
-    inwoners: 10000000
-  };
+
   landen: Land[];
   selectedLand: Land;
   totalVotes: number;

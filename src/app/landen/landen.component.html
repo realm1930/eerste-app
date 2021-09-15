@@ -1,7 +1,7 @@
-<ul class='landen'>
-    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="
-    l===selectedLand">
-        <span>{{l.id}} </span>{{l.name}}
+<ul>
+    <li *ngFor="let l of landen">
+        <a routerLink="/detail/{{l.id}}">
+            <span>{{l.id}}</span> {{l.name}}
+        </a>
     </li>
 </ul>
-<app-land-details *ngIf="selectedLand" [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>

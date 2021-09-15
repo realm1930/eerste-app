@@ -7,6 +7,9 @@ import { Observable,of } from 'rxjs';
   providedIn: 'root'
 })
 export class LandService {
+  getLand(id: number): Observable<Land> {
+    return of(LANDEN.find(land => land.id === id)!);
+    }
   getLanden():Observable<Land[]>{
     return of(LANDEN);
   }
