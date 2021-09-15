@@ -7,13 +7,4 @@
         <span>{{l.id}} </span>{{l.name}}
     </li>
 </ul>
-<div *ngIf="selectedLand">
-    <h2>{{selectedLand.name}} details!</h2>
-    <div>
-        <label>id: </label>{{selectedLand.id}}
-    </div>
-    <div>
-        <label>name: </label>
-        <input [(ngModel)]="selectedLand.name" placeholder="name" [style.background-Color]="selectedLand.name ===''?'red':'yellow'" />
-    </div>
-</div>
+<app-land-details [land]="selectedLand"></app-land-details>
