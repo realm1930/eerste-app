@@ -7,6 +7,10 @@ import { LandDetailsComponent } from './land-details/land-details.component';
 import { LandService } from './land.service';
 import { LandenComponent } from './landen/landen.component';
 import { TopInwondersComponent } from './top-inwonders/top-inwonders.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 @NgModule({
 declarations: [
 AppComponent,
@@ -15,8 +19,11 @@ LandenComponent,
 TopInwondersComponent
 ],
 imports: [
-BrowserModule, FormsModule, AppRoutingModule
-],
+BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
+HttpClientInMemoryWebApiModule.forRoot(
+InMemoryDataService
+)],
+
 providers: [LandService],
 bootstrap: [AppComponent]
 })
