@@ -1,0 +1,7 @@
+<ul class='landen'>
+    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="
+    l===selectedLand">
+        <span>{{l.id}} </span>{{l.name}}
+    </li>
+</ul>
+<app-land-details *ngIf="selectedLand" [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>

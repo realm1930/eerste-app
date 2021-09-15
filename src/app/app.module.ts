@@ -1,22 +1,37 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
 import { LandDetailsComponent } from './land-details/land-details.component';
-
+import { LandService } from './land.service';
+import { LandenComponent } from './landen/landen.component';
+import {RouterModule} from '@angular/router';
+import { TopInwondersComponent } from './top-inwonders/top-inwonders.component'
 @NgModule({
-  declarations: [
-    AppComponent,
-    LandDetailsComponent
+declarations: [
+AppComponent,
+LandDetailsComponent,
+LandenComponent,
+TopInwondersComponent
+],
+imports: [ BrowserModule,FormsModule,
+  RouterModule.forRoot([
+  {
+  path: 'landen',
+  component:LandenComponent
+  },
+  {
+    path:"top",
+    component:TopInwondersComponent
+  },
+  {
+    path:"",
+    redirectTo:"/top",
+    pathMatch:'full'
+    }
+  ])
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+providers: [LandService],
+bootstrap: [AppComponent]
 })
 export class AppModule { }

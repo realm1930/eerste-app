@@ -1,10 +1,4 @@
 <h1>{{title}}</h1>
-<h2>Mijn landen</h2>
-Total votes: <span>{{totalVotes}}</span>
-<ul class='landen'>
-    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="
-l===selectedLand">
-        <span>{{l.id}} </span>{{l.name}}
-    </li>
-</ul>
-<app-land-details *ngIf="selectedLand" [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>
+<a routerLink="/landen">landen</a>
+<a routerLink="/top">Top aantal inwoners</a>
+<router-outlet></router-outlet>
