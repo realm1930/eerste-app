@@ -1,11 +1,10 @@
-<h1>
-    {{title}}</h1>
+<h1>{{title}}</h1>
 <h2>Mijn landen</h2>
 Total votes: <span>{{totalVotes}}</span>
 <ul class='landen'>
-
-    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="l===selectedLand">
+    <li *ngFor="let l of landen" (click)="onSelect(l)" [class.selected]="
+l===selectedLand">
         <span>{{l.id}} </span>{{l.name}}
     </li>
 </ul>
-<app-land-details [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>>
+<app-land-details *ngIf="selectedLand" [land]="selectedLand" (valueChange)="onValueChange($event)"></app-land-details>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Land } from './model/land';
+import { LandService } from './land.service';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +9,22 @@ import { Land } from './model/land';
   
 })
 export class AppComponent {
-  static readonly LANDEN: Land[] = [
-    { id: 11, name: 'België' },
-    { id: 12, name: 'Nederland' },
-    { id: 13, name: 'Engeland' },
-    { id: 14, name: 'Ierland' },
-    { id: 15, name: 'Frankrijk' },
-    { id: 16, name: 'Spanje' },
-    { id: 17, name: 'Portugal' },
-    { id: 18, name: 'Italië' },
-    { id: 19, name: 'Zwitserland' },
-    { id: 20, name: 'Duitsland' }
-    ];
   title = 'Een lijstje van landen';
-  landen = AppComponent.LANDEN;
+  land: Land = {
+    id: 1,
+    name: 'België'
+  };
+  landen: Land[];
   selectedLand: Land;
   totalVotes: number;
+  constructor(private landService: LandService){}
   onSelect(land:Land):void{
     this.selectedLand=land;
   }
   onValueChange(event:number){
     this.totalVotes = event;
+  }
+  ngOnInit(): void {
+    this.landService.getLanden().then(landen=>this.landen=landen);
   }
 }
