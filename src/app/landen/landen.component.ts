@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Land } from '../model/land';
 import { LandService } from '../land.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landen',
@@ -9,6 +10,8 @@ import { LandService } from '../land.service';
   
 })
 export class LandenComponent implements OnInit {
+
+  faTrash = faTrash;
 
   nieuwLand:Land= new Land();
   landen: Land[];
@@ -32,6 +35,10 @@ export class LandenComponent implements OnInit {
       this.nieuwLand = {} as Land; // of = new Land()
       });
       }
+      delete(land: Land): void {
+        this.landen = this.landen.filter(l => l !== land);
+        this.landService.deleteLand(land).subscribe();
+        }
 
 
   ngOnInit(): void {

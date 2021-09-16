@@ -10,19 +10,23 @@ import { TopInwondersComponent } from './top-inwonders/top-inwonders.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LandZoekComponent } from './land-zoek/land-zoek.component';
 
 @NgModule({
 declarations: [
 AppComponent,
 LandDetailsComponent,
 LandenComponent,
-TopInwondersComponent
+TopInwondersComponent,
+LandZoekComponent
 ],
 imports: [
 BrowserModule, FormsModule, AppRoutingModule, HttpClientModule,
 HttpClientInMemoryWebApiModule.forRoot(
 InMemoryDataService
-)],
+),
+FontAwesomeModule],
 
 providers: [LandService],
 bootstrap: [AppComponent]
