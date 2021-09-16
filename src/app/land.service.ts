@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, of} from 'rxjs';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { catchError, map} from 'rxjs/operators';
 import { Land } from './model/land';
 
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
 @Injectable({
   providedIn: 'root'
 })
 export class LandService {
   private landenUrl = 'api/landen';
   constructor(private http:HttpClient){}
+  updateLand(land:Land):Observable<any>{
+    return this.http.put(this.landenUrl, land, httpOptions).pipe(
+      catchError(this.handleError<any>('updateLand'))
+    )
+  };
   getLanden(): Observable<Land[]> {
     return this.http.get<Land[]>(this.landenUrl)
     .pipe(
@@ -31,7 +37,9 @@ export class LandService {
     catchError(this.handleError<Land>(`getLand id=${id}`))
     );
     
+    
 }
+
 handleError<T>(operation= 'operation', result?: T) {
   // TODO: explain generics in Typescript intro!!
   return (error: any): Observable<T> => {
@@ -40,4 +48,6 @@ handleError<T>(operation= 'operation', result?: T) {
   return of(result as T);
   };
   }
+  
 }
+

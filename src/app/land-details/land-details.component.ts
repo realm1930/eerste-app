@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Land } from '../model/land';
 import { LandService } from '../land.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Component({
 selector: 'app-land-details',
 templateUrl: './land-details.component.html',
@@ -22,6 +24,13 @@ this.landService.getLand(id).subscribe(land => this.land = land);
 goBack(): void {
   this.location.back();
   }
+save(){
+  this.landService.updateLand(this.land).subscribe(()=>this.goBack());
 }
+}
+
+
+
+
 
 
